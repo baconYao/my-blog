@@ -1,30 +1,34 @@
-name: deploy
+# .github/workflows/deploy.yml
+name: Deploy Hugo blog to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main # 或你使用的其他分支
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "latest"
+          extended: true
 
-      - name: Build site
+      - name: Build with Hugo
         run: hugo --minify
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./public
           external_repository: baconYao/baconYao.github.io
           publish_branch: main
+          publish_dir: ./public
+          user_name: baconYao
+          user_email: baconyao@example.com
