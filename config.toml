@@ -1,0 +1,11 @@
+baseURL = "https://baconyao.github.io/"
+languageCode = "zh-tw"
+title = "Patrick 的部落格"
+theme = "PaperMod"
+
+[params]
+  author = "Patrick"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
