@@ -23,6 +23,10 @@ jobs:
       - name: Build with Hugo
         run: hugo --minify
 
+      - name: List public folder contents
+        run: |
+          ls -la ./public
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -31,4 +35,5 @@ jobs:
           publish_branch: main
           publish_dir: ./public
           user_name: baconYao
-          user_email: baconyao@example.com
+          user_email: bacon735392@gmail.com
+          force_orphan: true
